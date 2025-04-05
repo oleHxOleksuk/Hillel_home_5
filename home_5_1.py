@@ -15,13 +15,20 @@ elif name[0].isdigit():
 elif any(char.isupper() for char in name):
     print(False)
 
+    # Перевірка на наявність пробілів
+elif any(char == ' ' for char in name):
+    print(False)
+
     # Перевірка на наявність заборонених символів
 elif any(char in string.punctuation and char != "_" for char in name):
     print(False)
 
-    # Перевірка на кількість підкреслень
-elif name.count('_') > 1:
-    print(False)
+    # Перевірка на  підкреслення
+elif len(name) >= 2 :
+    if name[0] == '_' and name[1] == '_':
+        print(False)
+    else:
+        print(True)
 else:
     print(True)
 
